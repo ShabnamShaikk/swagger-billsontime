@@ -72,7 +72,64 @@ paths:
         "400":
           description: "Invalid status value"
 
-/billinformation:
+
+  /bills:
+    get:
+      tags:
+      - "allbills"
+      summary: "Get a list of all the bills added by user"
+      description: ""
+      operationId: "getallbills"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "405":
+          description: "Invalid input"
+
+    post:
+      tags:
+      - "allbill"
+      summary: "Add a bill"
+      description: ""
+      operationId: "postbill"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "billName"
+        in: "query"
+        description: ""
+        required: true
+        type: "integer"
+      - name: "billamount"
+        in: "query"
+        description: ""
+        required: true
+        type: "number"
+      - name: "duedate"
+        in: "query"
+        description: ""
+        required: true
+        type: "string" 
+      - name: "status"
+        in: "query"
+        description: ""
+        required: true
+        type: "string" 
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/allbills"
+        "400":
+          description: "Invalid status value"
+
+
 definitions:
   user:
     type: "object"
