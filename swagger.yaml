@@ -73,7 +73,7 @@ paths:
           description: "Invalid status value"
 
 
-  /locations:
+  /bills:
     get:
       tags:
       - "allbills"
